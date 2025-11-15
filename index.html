@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پورتفولیو اشکان نوروزی - نسخه PDF</title>
+    <title>Ashkan Norouzi QR code</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -13,7 +13,8 @@
             color: #e0e0ff;
             padding: 50px 20px;
             line-height: 1.9;
-            overflow: hidden;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
         .container { 
             max-width: 900px; 
@@ -21,8 +22,6 @@
             text-align: center; 
             animation: fadeInUp 1.2s ease-out;
         }
-
-        /* عنوان با افکت نوشتاری */
         h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 3.8rem;
@@ -43,11 +42,10 @@
             color: #8b5cf6;
             margin-right: 5px;
         }
-
-        /* QR Code با پالس */
         .qr-container {
             width: 240px;
             height: 240px;
+            max-width: 90vw;
             margin: 40px auto;
             padding: 18px;
             background: white;
@@ -60,8 +58,6 @@
             height: 100%;
             border-radius: 12px;
         }
-
-        /* لینک با انیمیشن سایت اصلی */
         .styled-link {
             display: inline-block;
             font-size: 1.45rem;
@@ -102,8 +98,6 @@
         }
         .styled-link:hover::before { left: 100%; }
         .styled-link:hover::after { width: 100%; }
-
-        /* متن نکته با افکت تایپ */
         .note {
             font-size: 1.15rem;
             color: #94a3b8;
@@ -125,8 +119,6 @@
             background: linear-gradient(90deg, transparent, rgba(139,92,246,0.05), transparent);
             animation: shimmer 3s infinite;
         }
-
-        /* اطلاعات تماس */
         .contact-info {
             margin: 30px 0;
             font-size: 1.1rem;
@@ -146,76 +138,45 @@
             transition: width 0.3s ease;
         }
         .contact-info a:hover::after { width: 100%; }
-
-        .footer {
-            margin-top: 60px;
-            font-size: 0.9rem;
-            color: #666;
-            animation: fadeIn 1s ease-out 1.5s backwards;
-        }
-
-        /* انیمیشن‌ها */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
         @keyframes blink { 50% { opacity: 0; } }
         @keyframes glowPulse {
             from { filter: drop-shadow(0 0 10px rgba(139,92,246,0.5)); }
             to { filter: drop-shadow(0 0 25px rgba(139,92,246,0.9)); }
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes scaleIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        @media (max-width: 1024px) {
+            h1 { font-size: 3.2rem; }
         }
-        @keyframes scaleIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        @media (max-width: 768px) {
+            body { padding: 40px 15px; }
+            h1 { font-size: 2.8rem; }
+            .qr-container { width: 220px; height: 220px; }
         }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 480px) {
+            body { padding: 30px 10px; }
+            h1 { font-size: 2.3rem; }
+            .qr-container { width: 200px; height: 200px; padding: 14px; }
+            .styled-link { font-size: 1.25rem; padding: 12px 28px; }
+            .note { font-size: 1rem; padding: 20px; }
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        @media (max-width: 360px) {
+            h1 { font-size: 2rem; }
+            .qr-container { width: 180px; height: 180px; }
         }
 
-        /* چاپ */
         @media print {
-            body { 
-                background: white; 
-                color: black; 
-                padding: 30px;
-            }
-            h1 { 
-                -webkit-text-fill-color: #8b5cf6; 
-                background: none;
-                animation: none;
-            }
-            .qr-container { 
-                box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
-                animation: none;
-            }
-            .styled-link { 
-                color: #8b5cf6; 
-                border-color: #8b5cf6;
-                background: transparent;
-                animation: none;
-            }
-            .note { 
-                background: #f8f9fa; 
-                color: #333; 
-                border: 1px solid #ddd;
-            }
+            body { background: white; color: black; padding: 30px; }
+            h1 { -webkit-text-fill-color: #8b5cf6; background: none; animation: none; }
+            .qr-container { box-shadow: 0 8px 20px rgba(0,0,0,0.2); animation: none; }
+            .styled-link { color: #8b5cf6; border-color: #8b5cf6; background: transparent; animation: none; }
+            .note { background: #f8f9fa; color: #333; border: 1px solid #ddd; }
             .note::before { display: none; }
             * { animation: none !important; }
         }
@@ -224,28 +185,23 @@
 <body>
 
     <div class="container">
-        <!-- عنوان -->
         <h1>Ashkan Norouzi</h1>
         <p style="font-size:1.55rem;margin:18px 0;color:#94a3b8;">
             مهندس بک‌اند پایتون • متخصص Web Scraping • توسعه‌دهنده اتوماسیون
         </p>
 
-        <!-- QR Code -->
         <div class="qr-container">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://ashkan0201.github.io/portfolio" alt="QR Code">
         </div>
 
-        <!-- لینک اصلی -->
         <a href="https://ashkan0201.github.io/portfolio" target="_blank" class="styled-link">
             باز کردن پورتفولیو کامل
         </a>
 
-        <!-- نکته -->
         <div class="note">
             <strong>با اسکن این QR Code وارد پورتفولیو اصلی اشکان نوروزی شوید</strong>
         </div>
 
-        <!-- اطلاعات تماس -->
         <div class="contact-info">
             <strong>ایمیل:</strong> <a href="mailto:ashkan02011@gmail.com">ashkan02011@gmail.com</a><br>
             <strong>گیت‌هاب:</strong> <a href="https://github.com/ashkan0201" target="_blank">github.com/ashkan0201</a>
